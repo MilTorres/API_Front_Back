@@ -2,6 +2,8 @@ package com.matr.api_front_back.controller;
 
 
 import com.matr.api_front_back.models.Usuario;
+import com.matr.api_front_back.repository.UsuarioDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +16,10 @@ import java.util.List;
 //para posteriormente el contenedor pueda gestionarla
 @RestController
 public class UsuarioController {
+
+
+    @Autowired
+    private UsuarioDao usuarioDao;
 
     //se comienzan a crear los endpoints con los cuales el cliente hara los requests
     @GetMapping(value = "prueba")
@@ -32,6 +38,7 @@ public class UsuarioController {
         return usuario;
     }
 
+
     @GetMapping(value = "usuario/{id}")
     public Usuario getusuario(@PathVariable Long id) {
         Usuario usuario = new Usuario();
@@ -43,6 +50,7 @@ public class UsuarioController {
         usuario.setPassword("1234");
         return usuario;
     }
+
     @GetMapping(value = "listausuario")
     public List<Usuario> getListusuario() {
 
@@ -56,7 +64,7 @@ public class UsuarioController {
         usuario.setTelefono("72727262");
         usuario.setPassword("1234");
 
-        Usuario usuario2= new Usuario();
+        Usuario usuario2 = new Usuario();
         usuario2.setId(2L);
         usuario2.setNombre("gala");
         usuario2.setApellido("romero");
@@ -76,5 +84,11 @@ public class UsuarioController {
         listausuarios.add(usuario2);
         listausuarios.add(usuario3);
         return listausuarios;
+    }
+
+
+    @GetMapping(value = "api/usuario")
+    public List<Usuario> getUsuarios() {
+        return usuarioDao.getUsuarios();
     }
 }

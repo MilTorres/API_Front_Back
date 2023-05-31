@@ -11,7 +11,7 @@ $(document).ready(function () {
 
 async function cargarusuarios() {
 
-    const request = await fetch('listausuario', {
+    const request = await fetch('api/usuario', {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -25,12 +25,12 @@ async function cargarusuarios() {
     let listadohtml = '';
     for (let usuario of usuarios){
         let formatousuario= ' <tr>\n' +
-            '                                    <td>1</td>\n' +
+            '                                    <td>'+usuario.id+'</td>\n' +
             '                                    <td>'+usuario.nombre+'</td>\n' +
             '                                    <td>'+usuario.apellido+'</td>\n' +
             '                                    <td>'+usuario.email+'</td>\n' +
             '                                    <td>'+usuario.telefono+'</td>\n' +
-            '                                    <td>'+usuario.contraseña+'</td>\n' +
+            '                                    <td>'+usuario.password+'</td>\n' +
             '                                    <td><a href="#" class="btn btn-danger btn-circle btn-sm">\n' +
             '                                        <i class="fas fa-trash"></i>\n' +
             '                                    </a></td>\n' +
