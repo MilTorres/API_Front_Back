@@ -1,6 +1,7 @@
 package com.matr.api_front_back.controller;
 
 
+import com.matr.api_front_back.models.Usuario;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,9 +11,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UsuarioController {
 
-//se comienzan a crear los endpoints con los cuales el cliente hara los requests
+    //se comienzan a crear los endpoints con los cuales el cliente hara los requests
     @GetMapping(value = "prueba")
-    public String prueba(){
+    public String prueba() {
         return "prueba controller";
+    }
+
+    @GetMapping(value = "json")
+    public Usuario json() {
+        Usuario usuario = new Usuario();
+        usuario.setNombre("milton");
+        usuario.setApellido("torres");
+        usuario.setEmail("mil@gmail.com");
+        usuario.setTelefono("72727262");
+        usuario.setPassword("1234");
+        return usuario;
     }
 }
