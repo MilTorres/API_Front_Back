@@ -22,7 +22,17 @@ public class UsuarioDaoImplementacion implements UsuarioDao  {
     @Override
     @Transactional
     public List<Usuario> getUsuarios() {
-        String query = "FROM Usuario";
+        String query = "FROM Usuario ";
         return entityManager.createQuery(query).getResultList();
     }
+
+
+    @Override
+    public void deleteUsuario(Long id) {
+        Usuario usuario = entityManager.find(Usuario.class, id);
+        if (usuario != null) {
+            entityManager.remove(usuario);
+        }
+    }
+
 }

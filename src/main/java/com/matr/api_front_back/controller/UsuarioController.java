@@ -4,9 +4,7 @@ package com.matr.api_front_back.controller;
 import com.matr.api_front_back.models.Usuario;
 import com.matr.api_front_back.repository.UsuarioDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,4 +89,13 @@ public class UsuarioController {
     public List<Usuario> getUsuarios() {
         return usuarioDao.getUsuarios();
     }
+
+
+
+
+    @DeleteMapping(value = "api/usuario/{id}")
+    public void deleteUsuario(@PathVariable("id") Long id) {
+        usuarioDao.deleteUsuario(id);
+    }
+
 }
