@@ -35,4 +35,9 @@ public class UsuarioDaoImplementacion implements UsuarioDao  {
         }
     }
 
+    @Override
+    public void registrar(Usuario usuario) {
+        entityManager.merge(usuario); //inserta objeto usuario en la bd mssql
+    }
+
 }

@@ -90,8 +90,10 @@ public class UsuarioController {
         return usuarioDao.getUsuarios();
     }
 
-
-
+    @PostMapping(value = "api/usuario")
+    public void registrarUsuarios(@RequestBody Usuario usuario) {
+        usuarioDao.registrar(usuario);
+    }
 
     @DeleteMapping(value = "api/usuario/{id}")
     public void deleteUsuario(@PathVariable("id") Long id) {
