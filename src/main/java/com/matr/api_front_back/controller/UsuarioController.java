@@ -28,7 +28,7 @@ public class UsuarioController {
     @GetMapping(value = "json")
     public Usuario json() {
         Usuario usuario = new Usuario();
-        usuario.setNombre("milton");
+        usuario.setNombre("Gala");
         usuario.setApellido("torres");
         usuario.setEmail("mil@gmail.com");
         usuario.setTelefono("72727262");

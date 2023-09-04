@@ -40,4 +40,7 @@ public class UsuarioDaoImplementacion implements UsuarioDao  {
         entityManager.merge(usuario); //inserta objeto usuario en la bd mssql
     }
 
+
+
+
 }

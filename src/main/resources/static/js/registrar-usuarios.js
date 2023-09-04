@@ -11,14 +11,18 @@ async function registrarusuarios() {
     datos.nombre = document.getElementById('txtnombre').value;
     datos.apellido = document.getElementById('txtapellido').value;
     datos.email = document.getElementById('txtEmail').value;
-    datos.telefono = document.getElementById('txttelefono').value;
+    let telefono= datos.telefono = document.getElementById('txttelefono').value;
     datos.password = document.getElementById('txtcontraseña').value;
     let  contraseña = document.getElementById('txtcontraseña').value;
     let repetircontraseña = document.getElementById('txtrepetircontraseña').value;
 
-
+//verifica que no exitan campos vacios
     if (!datos.nombre || !datos.apellido || !datos.telefono || !datos.password || !repetircontraseña){
-        alert('Todos los campos deben estar llenos')
+        alert('Todos los campos deben estar llenoos')
+        return;
+    }
+    if (/[a-zA-Z]/.test(telefono)) {
+        alert('El teléfono no debe contener letras');
         return;
     }
 if (repetircontraseña != contraseña){
@@ -34,7 +38,7 @@ if (repetircontraseña != contraseña){
         body: JSON.stringify(datos) //convierte el Objeto String a Objeto con formato JSON
     });
 alert("la cuenta fue creada con exito")
-window.location.href='usuarios.html'
+window.location.href='login.html'
 
 }
 
