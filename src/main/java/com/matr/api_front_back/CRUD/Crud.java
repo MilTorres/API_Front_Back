@@ -30,7 +30,7 @@ public class Crud {
              //  , "juanito@example.com");
 
 
-        // Obtener todos los registros
+        // Oobtener todos los registros
         crud.printTable();
 
         // Eliminar un registro (supongamos que el registro con ID 2 existe)
